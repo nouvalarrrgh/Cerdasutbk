@@ -1,0 +1,4 @@
+import Layout from '../components/Layout'; import ProtectedRoute from '../components/ProtectedRoute';
+import StatsCard from '../components/StatsCard';
+import { Users, BookOpen, BarChart3, TrendingUp } from 'lucide-react';
+export default function Admin(){ return (<ProtectedRoute admin={true}><Layout admin={true}><div><h1 className="text-2xl font-bold text-emerald-700 mb-4">Dashboard Admin</h1><div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6"><StatsCard title="Peserta" value="1284" color="bg-emerald-500" icon={<Users/>} /><StatsCard title="Tryout" value="12" color="bg-sky-500" icon={<BookOpen/>} /><StatsCard title="Rata-rata" value="72.4" color="bg-yellow-400" icon={<BarChart3/>} /><StatsCard title="Peningkatan" value="+15%" color="bg-purple-500" icon={<TrendingUp/>} /></div></div></Layout></ProtectedRoute>); }

@@ -1,0 +1,8 @@
+import Layout from '../components/Layout';
+import ProtectedRoute from '../components/ProtectedRoute';
+import { soalUtbk } from '../data/soalUtbk';
+import { useState } from 'react';
+export default function Tryout(){ const [answers,setAnswers]=useState({}); const [done,setDone]=useState(false); const [score,setScore]=useState(null);
+const select=(id,i)=> setAnswers({...answers,[id]:i});
+const finish=()=>{ let correct=0; soalUtbk.forEach(s=>{ if(answers[s.id]===s.jawaban) correct++; }); const nilai = Math.round((correct/soalUtbk.length)*100); setScore(nilai); setDone(true); const history = JSON.parse(localStorage.getItem('tryoutHistory')||'[]'); history.push({date: new Date().toLocaleDateString(), score: nilai}); localStorage.setItem('tryoutHistory', JSON.stringify(history)); };
+return (<ProtectedRoute><Layout><div><h1 className="text-2xl font-bold text-emerald-700 mb-4">Tryout Mini</h1>{!done? soalUtbk.map(s=>(<div key={s.id} className="card mb-4"><div className="text-sm text-emerald-600">{s.kategori}</div><p className="mt-2">{s.soal}</p><div className="grid gap-2 mt-3">{s.pilihan.map((p,i)=>(<button key={i} onClick={()=>select(s.id,i)} className={`p-2 rounded ${answers[s.id]===i ? 'bg-emerald-500 text-white' : 'bg-gray-100'}`}>{String.fromCharCode(65+i)}. {p}</button>))}</div></div>)):(<div className="card text-center"><h2 className="text-4xl font-bold text-emerald-600">{score}</h2><p className="mt-2">Skor kamu</p><button onClick={()=>{ setDone(false); setAnswers({}); setScore(null); }} className="mt-4 px-4 py-2 bg-emerald-500 text-white rounded">Ulangi</button></div>)}{!done && <button onClick={finish} className="px-4 py-2 bg-emerald-600 text-white rounded-lg">Selesai & Simpan</button>}</div></Layout></ProtectedRoute>); }

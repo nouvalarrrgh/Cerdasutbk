@@ -1,0 +1,4 @@
+import { useState } from 'react'; import { useRouter } from 'next/router';
+export default function AdminLogin(){ const [pw,setPw]=useState(''); const [err,setErr]=useState(''); const router=useRouter();
+const submit=(e)=>{ e.preventDefault(); if(pw==='admincerdas'){ localStorage.setItem('isAdminLoggedIn','true'); router.push('/admin'); } else setErr('password salah'); };
+return (<div className="min-h-screen flex items-center justify-center"><div className="card max-w-md"><h1 className="text-2xl font-bold text-emerald-700 mb-4">Login Admin</h1><form onSubmit={submit} className="space-y-3"><input value={pw} onChange={e=>setPw(e.target.value)} type="password" placeholder="password admin" className="w-full p-3 border rounded"/>{err && <p className="text-red-500">{err}</p>}<button className="w-full py-2 bg-emerald-600 text-white rounded">Masuk</button></form></div></div>); }

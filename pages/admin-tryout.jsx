@@ -1,0 +1,2 @@
+import Layout from '../components/Layout'; import ProtectedRoute from '../components/ProtectedRoute'; import TryoutForm from '../components/TryoutForm';
+export default function AdminTryout(){ return (<ProtectedRoute admin={true}><Layout admin={true}><div><h1 className="text-2xl font-bold text-emerald-700 mb-4">Manajemen Tryout</h1><TryoutForm onSave={(d)=>console.log('saved',d)} /></div></Layout></ProtectedRoute>); }
