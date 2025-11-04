@@ -3,22 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-  "dev": "next dev",
-  "build": "next build && next export",
-  "start": "next start"
-  }
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start"
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "framer-motion": "latest",
-    "recharts": "latest",
-    "lucide-react": "latest"
+    "next": "14.2.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "framer-motion": "10.16.4",
+    "recharts": "2.8.0",
+    "lucide-react": "0.292.0"
   },
   "devDependencies": {
-    "tailwindcss": "latest",
-    "postcss": "latest",
-    "autoprefixer": "latest"
+    "tailwindcss": "3.4.3",
+    "postcss": "8.4.31",
+    "autoprefixer": "10.4.16"
   }
 }
