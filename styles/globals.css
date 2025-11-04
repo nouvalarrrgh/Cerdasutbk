@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* soft green-blue gradient background for pages */
+html { scroll-behavior: smooth; }
+body {
+  @apply transition-colors duration-300 ease-in-out;
+  background: linear-gradient(135deg, #7ee7c7 0%, #6ed3f7 50%, #b6f0e1 100%);
+  min-height: 100vh;
+}
+.dark body { @apply bg-gray-900 text-gray-100; }
+
+.container { @apply max-w-6xl mx-auto px-6; }
+.card { @apply bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg; }
